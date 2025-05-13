@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MARC21 Generator</title>
+  <script src="/static/app.js" defer></script>
+  <style>
+    body { font-family: sans-serif; padding: 2em; }
+    #drop-area { border: 2px dashed #ccc; padding: 2em; text-align: center; margin-bottom: 2em; }
+    #result { white-space: pre-wrap; background: #f5f5f5; padding: 1em; margin-top: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Upload a PDF to Generate MARC21 Record</h1>
+  <div id="drop-area">
+    <input type="file" id="fileElem" accept=".pdf,.txt" />
+    <button onclick="upload()">Extract and Generate</button>
+  </div>
+  <div id="result"></div>
+</body>
+</html>
