@@ -1,0 +1,19 @@
+async function upload() {
+  const input = document.getElementById("fileElem");
+  if (!input.files.length) return alert("Please choose a file.");
+
+  const formData = new FormData();
+  formData.append("file", input.files[0]);
+
+  const res = await fetch("/upload", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+  const result = document.getElementById("result");
+  result.innerHTML = 
+    "<h3>Metadata</h3><pre>" + JSON.stringify(data.metadata, null, 2) + "</pre>" +
+    "<h3>MARC21</h3><pre>" + data.marc21 + "</pre>" +
+    "<h3>MARCXML (sample)</h3><pre>" + data.marcxml + "</pre>";
+}
